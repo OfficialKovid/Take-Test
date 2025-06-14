@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Your Test</title>
+    <link rel="stylesheet" href="../../css/Review-your-test.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="review-container">
+        <header class="review-header">
+            <h1>Test Review</h1>
+            <div class="review-summary">
+                <div class="summary-item correct">
+                    <span class="count" id="correctCount">0</span>
+                    <span class="label">Correct</span>
+                </div>
+                <div class="summary-item incorrect">
+                    <span class="count" id="incorrectCount">0</span>
+                    <span class="label">Incorrect</span>
+                </div>
+                <div class="summary-item unattempted">
+                    <span class="count" id="unattemptedCount">0</span>
+                    <span class="label">Not Attempted</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="questions-container" id="questionsContainer">
+            <!-- Questions will be added dynamically -->
+        </div>
+
+        <div class="review-actions">
+            <button class="back-btn" onclick="window.location.href='see-result.html'">
+                <i class="fas fa-arrow-left"></i> Back to Results
+            </button>
+            <button class="home-btn" onclick="window.location.href='../list-tests.html'">
+                <i class="fas fa-home"></i> Back to Tests
+            </button>
+        </div>
+    </div>
+    <script src="../../js/review-your-test.js"></script>
+</body>
+</html>

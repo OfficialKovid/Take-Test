@@ -1,0 +1,726 @@
+{
+  "tests": [
+    {
+      "test_id": "html101",
+      "name": "HTML Basics Test",
+      "category": "Web Development",
+      "description": "Covers HTML from basic to advanced level",
+      "total_questions_available": 60,
+      "questions_per_exam": 25,
+      "time_limit_minutes": 30,
+      "shuffle_questions": true,
+      "categories": [
+        {
+          "name": "Basics & Fundamentals",
+          "questions": [
+            {
+              "id": "q1",
+              "question": "How do you insert an image in HTML? (variant 1)",
+              "options": [
+                "<img src='image.jpg'>",
+                "<image src='image.jpg'>",
+                "<img href='image.jpg'>",
+                "<src img='image.jpg'>"
+              ],
+              "answer": "<img src='image.jpg'>"
+            },
+            {
+              "id": "q2",
+              "question": "What is the alt attribute in the <img> tag? (variant 1)",
+              "options": [
+                "Gives image size",
+                "Specifies image URL",
+                "Provides alternative text",
+                "Sets image alignment"
+              ],
+              "answer": "Provides alternative text"
+            },
+            {
+              "id": "q3",
+              "question": "What is the difference between <figure> and <img>? (variant 1)",
+              "options": [
+                "<img> is for figures, <figure> is for images",
+                "<figure> is for background images",
+                "<figure> adds semantic meaning and can have a caption",
+                "<figure> changes image size"
+              ],
+              "answer": "<figure> adds semantic meaning and can have a caption"
+            },
+            {
+              "id": "q4",
+              "question": "How can you embed a video or audio file in HTML5? (variant 1)",
+              "options": [
+                "<media src='file'>",
+                "<embed src='file'>",
+                "<video src='file' controls>",
+                "<object data='file'>"
+              ],
+              "answer": "<video src='file' controls>"
+            },
+            {
+              "id": "q5",
+              "question": "What are the new media tags introduced in HTML5? (variant 1)",
+              "options": [
+                "<media>, <stream>",
+                "<audio>, <video>, <source>",
+                "<track>, <stream>",
+                "<object>, <media>"
+              ],
+              "answer": "<audio>, <video>, <source>"
+            },
+            {
+              "id": "q6",
+              "question": "Which semantic elements were introduced in HTML5? (variant 1)",
+              "options": [
+                "<div>, <span>",
+                "<head>, <body>",
+                "<section>, <article>, <nav>",
+                "<style>, <script>"
+              ],
+              "answer": "<section>, <article>, <nav>"
+            }
+          ]
+        },
+        {
+          "name": "Links, Navigation & Metadata",
+          "questions": [
+            {
+              "id": "q7",
+              "question": "What is the purpose of the <canvas> tag? (variant 1)",
+              "options": [
+                "To draw graphics via JavaScript",
+                "To embed SVG",
+                "To insert images",
+                "To define layout areas"
+              ],
+              "answer": "To draw graphics via JavaScript"
+            },
+            {
+              "id": "q8",
+              "question": "What is the difference between SVG and Canvas? (variant 1)",
+              "options": [
+                "Canvas uses HTML; SVG uses CSS",
+                "Canvas is pixel-based; SVG is vector-based",
+                "SVG is not interactive; Canvas is",
+                "SVG is for animation only"
+              ],
+              "answer": "Canvas is pixel-based; SVG is vector-based"
+            },
+            {
+              "id": "q9",
+              "question": "What is localStorage and sessionStorage in HTML5? (variant 1)",
+              "options": [
+                "Both store data permanently",
+                "localStorage persists after browser close; sessionStorage does not",
+                "sessionStorage stores larger data",
+                "localStorage clears on tab close"
+              ],
+              "answer": "localStorage persists after browser close; sessionStorage does not"
+            },
+            {
+              "id": "q10",
+              "question": "What is the <datalist> tag and how is it different from <select>? (variant 1)",
+              "options": [
+                "It works exactly like <select>",
+                "<datalist> allows typing; <select> does not",
+                "<select> is for styling; <datalist> is not",
+                "<datalist> doesn't support options"
+              ],
+              "answer": "<datalist> allows typing; <select> does not"
+            },
+            {
+              "id": "q11",
+              "question": "How do you insert an image in HTML? (variant 2)",
+              "options": [
+                "<img src='image.jpg'>",
+                "<image src='image.jpg'>",
+                "<img href='image.jpg'>",
+                "<src img='image.jpg'>"
+              ],
+              "answer": "<img src='image.jpg'>"
+            },
+            {
+              "id": "q12",
+              "question": "What is the alt attribute in the <img> tag? (variant 2)",
+              "options": [
+                "Gives image size",
+                "Specifies image URL",
+                "Provides alternative text",
+                "Sets image alignment"
+              ],
+              "answer": "Provides alternative text"
+            }
+          ]
+        },
+        {
+          "name": "HTML Elements & Layout",
+          "questions": [
+            {
+              "id": "q13",
+              "question": "What is the difference between <figure> and <img>? (variant 2)",
+              "options": [
+                "<img> is for figures, <figure> is for images",
+                "<figure> is for background images",
+                "<figure> adds semantic meaning and can have a caption",
+                "<figure> changes image size"
+              ],
+              "answer": "<figure> adds semantic meaning and can have a caption"
+            },
+            {
+              "id": "q14",
+              "question": "How can you embed a video or audio file in HTML5? (variant 2)",
+              "options": [
+                "<media src='file'>",
+                "<embed src='file'>",
+                "<video src='file' controls>",
+                "<object data='file'>"
+              ],
+              "answer": "<video src='file' controls>"
+            },
+            {
+              "id": "q15",
+              "question": "What are the new media tags introduced in HTML5? (variant 2)",
+              "options": [
+                "<media>, <stream>",
+                "<audio>, <video>, <source>",
+                "<track>, <stream>",
+                "<object>, <media>"
+              ],
+              "answer": "<audio>, <video>, <source>"
+            },
+            {
+              "id": "q16",
+              "question": "Which semantic elements were introduced in HTML5? (variant 2)",
+              "options": [
+                "<div>, <span>",
+                "<head>, <body>",
+                "<section>, <article>, <nav>",
+                "<style>, <script>"
+              ],
+              "answer": "<section>, <article>, <nav>"
+            },
+            {
+              "id": "q17",
+              "question": "What is the purpose of the <canvas> tag? (variant 2)",
+              "options": [
+                "To draw graphics via JavaScript",
+                "To embed SVG",
+                "To insert images",
+                "To define layout areas"
+              ],
+              "answer": "To draw graphics via JavaScript"
+            },
+            {
+              "id": "q18",
+              "question": "What is the difference between SVG and Canvas? (variant 2)",
+              "options": [
+                "Canvas uses HTML; SVG uses CSS",
+                "Canvas is pixel-based; SVG is vector-based",
+                "SVG is not interactive; Canvas is",
+                "SVG is for animation only"
+              ],
+              "answer": "Canvas is pixel-based; SVG is vector-based"
+            }
+          ]
+        },
+        {
+          "name": "Forms & Input Elements",
+          "questions": [
+            {
+              "id": "q19",
+              "question": "What is localStorage and sessionStorage in HTML5? (variant 2)",
+              "options": [
+                "Both store data permanently",
+                "localStorage persists after browser close; sessionStorage does not",
+                "sessionStorage stores larger data",
+                "localStorage clears on tab close"
+              ],
+              "answer": "localStorage persists after browser close; sessionStorage does not"
+            },
+            {
+              "id": "q20",
+              "question": "What is the <datalist> tag and how is it different from <select>? (variant 2)",
+              "options": [
+                "It works exactly like <select>",
+                "<datalist> allows typing; <select> does not",
+                "<select> is for styling; <datalist> is not",
+                "<datalist> doesn't support options"
+              ],
+              "answer": "<datalist> allows typing; <select> does not"
+            },
+            {
+              "id": "q21",
+              "question": "How do you insert an image in HTML? (variant 3)",
+              "options": [
+                "<img src='image.jpg'>",
+                "<image src='image.jpg'>",
+                "<img href='image.jpg'>",
+                "<src img='image.jpg'>"
+              ],
+              "answer": "<img src='image.jpg'>"
+            },
+            {
+              "id": "q22",
+              "question": "What is the alt attribute in the <img> tag? (variant 3)",
+              "options": [
+                "Gives image size",
+                "Specifies image URL",
+                "Provides alternative text",
+                "Sets image alignment"
+              ],
+              "answer": "Provides alternative text"
+            },
+            {
+              "id": "q23",
+              "question": "What is the difference between <figure> and <img>? (variant 3)",
+              "options": [
+                "<img> is for figures, <figure> is for images",
+                "<figure> is for background images",
+                "<figure> adds semantic meaning and can have a caption",
+                "<figure> changes image size"
+              ],
+              "answer": "<figure> adds semantic meaning and can have a caption"
+            },
+            {
+              "id": "q24",
+              "question": "How can you embed a video or audio file in HTML5? (variant 3)",
+              "options": [
+                "<media src='file'>",
+                "<embed src='file'>",
+                "<video src='file' controls>",
+                "<object data='file'>"
+              ],
+              "answer": "<video src='file' controls>"
+            }
+          ]
+        },
+        {
+          "name": "Media & Embedding",
+          "questions": [
+            {
+              "id": "q25",
+              "question": "What are the new media tags introduced in HTML5? (variant 3)",
+              "options": [
+                "<media>, <stream>",
+                "<audio>, <video>, <source>",
+                "<track>, <stream>",
+                "<object>, <media>"
+              ],
+              "answer": "<audio>, <video>, <source>"
+            },
+            {
+              "id": "q26",
+              "question": "Which semantic elements were introduced in HTML5? (variant 3)",
+              "options": [
+                "<div>, <span>",
+                "<head>, <body>",
+                "<section>, <article>, <nav>",
+                "<style>, <script>"
+              ],
+              "answer": "<section>, <article>, <nav>"
+            },
+            {
+              "id": "q27",
+              "question": "What is the purpose of the <canvas> tag? (variant 3)",
+              "options": [
+                "To draw graphics via JavaScript",
+                "To embed SVG",
+                "To insert images",
+                "To define layout areas"
+              ],
+              "answer": "To draw graphics via JavaScript"
+            },
+            {
+              "id": "q28",
+              "question": "What is the difference between SVG and Canvas? (variant 3)",
+              "options": [
+                "Canvas uses HTML; SVG uses CSS",
+                "Canvas is pixel-based; SVG is vector-based",
+                "SVG is not interactive; Canvas is",
+                "SVG is for animation only"
+              ],
+              "answer": "Canvas is pixel-based; SVG is vector-based"
+            },
+            {
+              "id": "q29",
+              "question": "What is localStorage and sessionStorage in HTML5? (variant 3)",
+              "options": [
+                "Both store data permanently",
+                "localStorage persists after browser close; sessionStorage does not",
+                "sessionStorage stores larger data",
+                "localStorage clears on tab close"
+              ],
+              "answer": "localStorage persists after browser close; sessionStorage does not"
+            },
+            {
+              "id": "q30",
+              "question": "What is the <datalist> tag and how is it different from <select>? (variant 3)",
+              "options": [
+                "It works exactly like <select>",
+                "<datalist> allows typing; <select> does not",
+                "<select> is for styling; <datalist> is not",
+                "<datalist> doesn't support options"
+              ],
+              "answer": "<datalist> allows typing; <select> does not"
+            }
+          ]
+        },
+        {
+          "name": "HTML5 Features",
+          "questions": [
+            {
+              "id": "q31",
+              "question": "How do you insert an image in HTML? (variant 4)",
+              "options": [
+                "<img src='image.jpg'>",
+                "<image src='image.jpg'>",
+                "<img href='image.jpg'>",
+                "<src img='image.jpg'>"
+              ],
+              "answer": "<img src='image.jpg'>"
+            },
+            {
+              "id": "q32",
+              "question": "What is the alt attribute in the <img> tag? (variant 4)",
+              "options": [
+                "Gives image size",
+                "Specifies image URL",
+                "Provides alternative text",
+                "Sets image alignment"
+              ],
+              "answer": "Provides alternative text"
+            },
+            {
+              "id": "q33",
+              "question": "What is the difference between <figure> and <img>? (variant 4)",
+              "options": [
+                "<img> is for figures, <figure> is for images",
+                "<figure> is for background images",
+                "<figure> adds semantic meaning and can have a caption",
+                "<figure> changes image size"
+              ],
+              "answer": "<figure> adds semantic meaning and can have a caption"
+            },
+            {
+              "id": "q34",
+              "question": "How can you embed a video or audio file in HTML5? (variant 4)",
+              "options": [
+                "<media src='file'>",
+                "<embed src='file'>",
+                "<video src='file' controls>",
+                "<object data='file'>"
+              ],
+              "answer": "<video src='file' controls>"
+            },
+            {
+              "id": "q35",
+              "question": "What are the new media tags introduced in HTML5? (variant 4)",
+              "options": [
+                "<media>, <stream>",
+                "<audio>, <video>, <source>",
+                "<track>, <stream>",
+                "<object>, <media>"
+              ],
+              "answer": "<audio>, <video>, <source>"
+            },
+            {
+              "id": "q36",
+              "question": "Which semantic elements were introduced in HTML5? (variant 4)",
+              "options": [
+                "<div>, <span>",
+                "<head>, <body>",
+                "<section>, <article>, <nav>",
+                "<style>, <script>"
+              ],
+              "answer": "<section>, <article>, <nav>"
+            }
+          ]
+        },
+        {
+          "name": "Scripting & Performance",
+          "questions": [
+            {
+              "id": "q37",
+              "question": "What is the purpose of the <canvas> tag? (variant 4)",
+              "options": [
+                "To draw graphics via JavaScript",
+                "To embed SVG",
+                "To insert images",
+                "To define layout areas"
+              ],
+              "answer": "To draw graphics via JavaScript"
+            },
+            {
+              "id": "q38",
+              "question": "What is the difference between SVG and Canvas? (variant 4)",
+              "options": [
+                "Canvas uses HTML; SVG uses CSS",
+                "Canvas is pixel-based; SVG is vector-based",
+                "SVG is not interactive; Canvas is",
+                "SVG is for animation only"
+              ],
+              "answer": "Canvas is pixel-based; SVG is vector-based"
+            },
+            {
+              "id": "q39",
+              "question": "What is localStorage and sessionStorage in HTML5? (variant 4)",
+              "options": [
+                "Both store data permanently",
+                "localStorage persists after browser close; sessionStorage does not",
+                "sessionStorage stores larger data",
+                "localStorage clears on tab close"
+              ],
+              "answer": "localStorage persists after browser close; sessionStorage does not"
+            },
+            {
+              "id": "q40",
+              "question": "What is the <datalist> tag and how is it different from <select>? (variant 4)",
+              "options": [
+                "It works exactly like <select>",
+                "<datalist> allows typing; <select> does not",
+                "<select> is for styling; <datalist> is not",
+                "<datalist> doesn't support options"
+              ],
+              "answer": "<datalist> allows typing; <select> does not"
+            },
+            {
+              "id": "q41",
+              "question": "How do you insert an image in HTML? (variant 5)",
+              "options": [
+                "<img src='image.jpg'>",
+                "<image src='image.jpg'>",
+                "<img href='image.jpg'>",
+                "<src img='image.jpg'>"
+              ],
+              "answer": "<img src='image.jpg'>"
+            },
+            {
+              "id": "q42",
+              "question": "What is the alt attribute in the <img> tag? (variant 5)",
+              "options": [
+                "Gives image size",
+                "Specifies image URL",
+                "Provides alternative text",
+                "Sets image alignment"
+              ],
+              "answer": "Provides alternative text"
+            }
+          ]
+        },
+        {
+          "name": "Attributes, Accessibility & SEO",
+          "questions": [
+            {
+              "id": "q43",
+              "question": "What is the difference between <figure> and <img>? (variant 5)",
+              "options": [
+                "<img> is for figures, <figure> is for images",
+                "<figure> is for background images",
+                "<figure> adds semantic meaning and can have a caption",
+                "<figure> changes image size"
+              ],
+              "answer": "<figure> adds semantic meaning and can have a caption"
+            },
+            {
+              "id": "q44",
+              "question": "How can you embed a video or audio file in HTML5? (variant 5)",
+              "options": [
+                "<media src='file'>",
+                "<embed src='file'>",
+                "<video src='file' controls>",
+                "<object data='file'>"
+              ],
+              "answer": "<video src='file' controls>"
+            },
+            {
+              "id": "q45",
+              "question": "What are the new media tags introduced in HTML5? (variant 5)",
+              "options": [
+                "<media>, <stream>",
+                "<audio>, <video>, <source>",
+                "<track>, <stream>",
+                "<object>, <media>"
+              ],
+              "answer": "<audio>, <video>, <source>"
+            },
+            {
+              "id": "q46",
+              "question": "Which semantic elements were introduced in HTML5? (variant 5)",
+              "options": [
+                "<div>, <span>",
+                "<head>, <body>",
+                "<section>, <article>, <nav>",
+                "<style>, <script>"
+              ],
+              "answer": "<section>, <article>, <nav>"
+            },
+            {
+              "id": "q47",
+              "question": "What is the purpose of the <canvas> tag? (variant 5)",
+              "options": [
+                "To draw graphics via JavaScript",
+                "To embed SVG",
+                "To insert images",
+                "To define layout areas"
+              ],
+              "answer": "To draw graphics via JavaScript"
+            },
+            {
+              "id": "q48",
+              "question": "What is the difference between SVG and Canvas? (variant 5)",
+              "options": [
+                "Canvas uses HTML; SVG uses CSS",
+                "Canvas is pixel-based; SVG is vector-based",
+                "SVG is not interactive; Canvas is",
+                "SVG is for animation only"
+              ],
+              "answer": "Canvas is pixel-based; SVG is vector-based"
+            }
+          ]
+        },
+        {
+          "name": "Advanced & Practical Use",
+          "questions": [
+            {
+              "id": "q49",
+              "question": "What is localStorage and sessionStorage in HTML5? (variant 5)",
+              "options": [
+                "Both store data permanently",
+                "localStorage persists after browser close; sessionStorage does not",
+                "sessionStorage stores larger data",
+                "localStorage clears on tab close"
+              ],
+              "answer": "localStorage persists after browser close; sessionStorage does not"
+            },
+            {
+              "id": "q50",
+              "question": "What is the <datalist> tag and how is it different from <select>? (variant 5)",
+              "options": [
+                "It works exactly like <select>",
+                "<datalist> allows typing; <select> does not",
+                "<select> is for styling; <datalist> is not",
+                "<datalist> doesn't support options"
+              ],
+              "answer": "<datalist> allows typing; <select> does not"
+            },
+            {
+              "id": "q51",
+              "question": "How do you insert an image in HTML? (variant 6)",
+              "options": [
+                "<img src='image.jpg'>",
+                "<image src='image.jpg'>",
+                "<img href='image.jpg'>",
+                "<src img='image.jpg'>"
+              ],
+              "answer": "<img src='image.jpg'>"
+            },
+            {
+              "id": "q52",
+              "question": "What is the alt attribute in the <img> tag? (variant 6)",
+              "options": [
+                "Gives image size",
+                "Specifies image URL",
+                "Provides alternative text",
+                "Sets image alignment"
+              ],
+              "answer": "Provides alternative text"
+            },
+            {
+              "id": "q53",
+              "question": "What is the difference between <figure> and <img>? (variant 6)",
+              "options": [
+                "<img> is for figures, <figure> is for images",
+                "<figure> is for background images",
+                "<figure> adds semantic meaning and can have a caption",
+                "<figure> changes image size"
+              ],
+              "answer": "<figure> adds semantic meaning and can have a caption"
+            },
+            {
+              "id": "q54",
+              "question": "How can you embed a video or audio file in HTML5? (variant 6)",
+              "options": [
+                "<media src='file'>",
+                "<embed src='file'>",
+                "<video src='file' controls>",
+                "<object data='file'>"
+              ],
+              "answer": "<video src='file' controls>"
+            }
+          ]
+        },
+        {
+          "name": "Best Practices & Real-World",
+          "questions": [
+            {
+              "id": "q55",
+              "question": "What are the new media tags introduced in HTML5? (variant 6)",
+              "options": [
+                "<media>, <stream>",
+                "<audio>, <video>, <source>",
+                "<track>, <stream>",
+                "<object>, <media>"
+              ],
+              "answer": "<audio>, <video>, <source>"
+            },
+            {
+              "id": "q56",
+              "question": "Which semantic elements were introduced in HTML5? (variant 6)",
+              "options": [
+                "<div>, <span>",
+                "<head>, <body>",
+                "<section>, <article>, <nav>",
+                "<style>, <script>"
+              ],
+              "answer": "<section>, <article>, <nav>"
+            },
+            {
+              "id": "q57",
+              "question": "What is the purpose of the <canvas> tag? (variant 6)",
+              "options": [
+                "To draw graphics via JavaScript",
+                "To embed SVG",
+                "To insert images",
+                "To define layout areas"
+              ],
+              "answer": "To draw graphics via JavaScript"
+            },
+            {
+              "id": "q58",
+              "question": "What is the difference between SVG and Canvas? (variant 6)",
+              "options": [
+                "Canvas uses HTML; SVG uses CSS",
+                "Canvas is pixel-based; SVG is vector-based",
+                "SVG is not interactive; Canvas is",
+                "SVG is for animation only"
+              ],
+              "answer": "Canvas is pixel-based; SVG is vector-based"
+            },
+            {
+              "id": "q59",
+              "question": "What is localStorage and sessionStorage in HTML5? (variant 6)",
+              "options": [
+                "Both store data permanently",
+                "localStorage persists after browser close; sessionStorage does not",
+                "sessionStorage stores larger data",
+                "localStorage clears on tab close"
+              ],
+              "answer": "localStorage persists after browser close; sessionStorage does not"
+            },
+            {
+              "id": "q60",
+              "question": "What is the <datalist> tag and how is it different from <select>? (variant 6)",
+              "options": [
+                "It works exactly like <select>",
+                "<datalist> allows typing; <select> does not",
+                "<select> is for styling; <datalist> is not",
+                "<datalist> doesn't support options"
+              ],
+              "answer": "<datalist> allows typing; <select> does not"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take Test</title>
+    <link rel="stylesheet" href="../css/take-test.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .name-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-content h2 {
+            margin: 0 0 1rem 0;
+            color: #1a1a1a;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal-content input.error {
+            border-color: #dc2626;
+            animation: shake 0.5s;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background: var(--secondary-color);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <div class="test-info">
+                <h1 id="testName">Loading...</h1>
+                <div class="test-meta">
+                    <span id="questionCount">Question 0/0</span>
+                    <span id="timer"><i class="fas fa-clock"></i> 00:00</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+        </div>
+        
+        <div class="question-container" id="questionContainer">
+            <div class="question-number">Question <span id="currentQuestionNum">1</span></div>
+            <div class="question-text" id="questionText"></div>
+            <div class="options-container" id="optionsContainer"></div>
+        </div>
+
+        <div class="test-footer">
+            <button id="prevBtn" class="nav-btn" disabled>
+                <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button id="nextBtn" class="nav-btn">
+                Next <i class="fas fa-arrow-right"></i>
+            </button>
+            <button id="submitBtn" class="submit-btn" style="display: none;">
+                Submit Test
+            </button>
+        </div>
+    </div>
+    <script src="../js/local-storage-logic.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.testManager) {
+                window.testManager.checkUserName();
+            }
+        });
+    </script>
+
+<script>
+        function showNamePrompt() {
+            const modal = document.createElement('div');
+            modal.className = 'name-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2>Welcome!</h2>
+                    <p>Please enter your full name to continue:</p>
+                    <input type="text" id="userName" placeholder="Your full name" autocomplete="name">
+                    <button id="submitName">Continue</button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            const input = modal.querySelector('#userName');
+            const button = modal.querySelector('#submitName');
+
+            const handleSubmit = () => {
+                const name = input.value.trim();
+                if (name) {
+                    localStorage.setItem('userName', name);
+                    modal.remove();
+                    initializeTest();
+                } else {
+                    input.classList.add('error');
+                    setTimeout(() => input.classList.remove('error'), 1000);
+                }
+            };
+
+            button.addEventListener('click', handleSubmit);
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleSubmit();
+            });
+            input.focus();
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', checkUserName);
+    </script>
+</body>
+</html>

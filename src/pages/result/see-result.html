@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <main class="results-container">
+        <div class="results-card">
+            <h1>Test Results</h1>
+            <div class="score-circle">
+                <div class="percentage" id="scorePercentage">0%</div>
+                <div class="score-label">Score</div>
+            </div>
+            <div class="result-stats">
+                <div class="stat-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Correct Answers:</span>
+                    <strong id="correctAnswers">0/0</strong>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Time Taken:</span>
+                    <strong id="timeTaken">0:00</strong>
+                </div>
+            </div>
+            <button class="review-btn" onclick="window.location.href='review-your-test.html'">
+                <i class="fas fa-search"></i> Review Your Test
+            </button>
+            <button class="home-btn" onclick="window.location.href='../list-tests.html'">
+                <i class="fas fa-home"></i> Back to Tests
+            </button>
+        </div>
+    </main>
+    <script src="../../js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if we have current test results
+            const currentResult = localStorage.getItem('currentTestResult');
+            if (!currentResult) {
+                window.location.href = '../list-tests.html';
+            }
+        });
+    </script>
+</body>
+</html>

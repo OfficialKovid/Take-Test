@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test History</title>
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .history-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .test-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .test-card::after {
+            content: 'Click to review';
+            position: absolute;
+            right: 1rem;
+            bottom: 1rem;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .test-card:hover::after {
+            opacity: 1;
+        }
+        .test-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .test-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .score-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 16px;
+            font-weight: 500;
+        }
+        .score-high { background: #dcfce7; color: #15803d; }
+        .score-mid { background: #fef9c3; color: #854d0e; }
+        .score-low { background: #fee2e2; color: #991b1b; }
+        .test-details {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .no-results i {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .no-results p {
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="history-container">
+        <div class="history-header">
+            <h1>Your Test History</h1>
+            <button class="back-btn" onclick="window.location.href='../../list-tests.html'">
+                <i class="fas fa-arrow-left"></i> Back to Tests
+            </button>
+        </div>
+        <div id="historyContainer">
+            <!-- Test history will be loaded here -->
+        </div>
+    </div>
+
+    <script src="../../../js/local-storage-logic.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const history = TestStorageManager.getTestHistory();
+            const container = document.getElementById('historyContainer');
+
+            if (!history || history.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-history fa-3x"></i>
+                        <p>No test history available yet.</p>
+                        <button class="back-btn" onclick="window.location.href='../../list-tests.html'">
+                            Take Your First Test
+                        </button>
+                    </div>`;
+                return;
+            }
+
+            container.innerHTML = history.map(test => {
+                const correctCount = test.questions.reduce((count, q, index) => 
+                    count + (test.answers[index] === q.answer ? 1 : 0), 0);
+                const percentage = Math.round((correctCount / test.totalQuestions) * 100);
+                const date = new Date(test.timestamp).toLocaleDateString();
+                const time = new Date(test.timestamp).toLocaleTimeString();
+
+                let scoreClass = 'score-low';
+                if (percentage >= 80) scoreClass = 'score-high';
+                else if (percentage >= 60) scoreClass = 'score-mid';
+
+                return `
+                    <div class="test-card" onclick="viewTestReview(${JSON.stringify(test).replace(/"/g, '&quot;')})">
+                        <div class="test-header">
+                            <h3>${test.testName}</h3>
+                            <span class="score-badge ${scoreClass}">${percentage}%</span>
+                        </div>
+                        <div class="test-details">
+                            <p><i class="fas fa-user"></i> ${test.userName || 'Anonymous'}</p>
+                            <p><i class="fas fa-calendar"></i> ${date} at ${time}</p>
+                            <p><i class="fas fa-check-circle"></i> ${correctCount}/${test.totalQuestions} correct</p>
+                            <p><i class="fas fa-clock"></i> Time: ${Math.floor(test.timeSpent / 60)}:${String(test.timeSpent % 60).padStart(2, '0')}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        });
+
+        function viewTestReview(test) {
+            // Store the test data for review
+            localStorage.setItem('currentTestResult', JSON.stringify(test));
+            // Navigate to review page
+            window.location.href = '../review-your-test.html';
+        }
+    </script>
+</body>
+</html>
