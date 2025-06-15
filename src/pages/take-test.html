@@ -101,18 +101,24 @@
         </div>
 
         <div class="test-footer">
-            <button id="prevBtn" class="nav-btn" disabled>
-                <i class="fas fa-arrow-left"></i> Previous
+            <button id="dismissBtn" class="dismiss-btn" onclick="dismissTest()">
+                <i class="fas fa-times"></i> Dismiss Test
             </button>
-            <button id="nextBtn" class="nav-btn">
-                Next <i class="fas fa-arrow-right"></i>
-            </button>
-            <button id="submitBtn" class="submit-btn" style="display: none;">
-                Submit Test
-            </button>
+            <div class="navigation-buttons">
+                <button id="prevBtn" class="nav-btn" disabled>
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button id="nextBtn" class="nav-btn">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="submitBtn" class="submit-btn" style="display: none;">
+                    Submit Test
+                </button>
+            </div>
         </div>
     </div>
     <script src="../js/local-storage-logic.js"></script>
+    <script src="../js/test-session.js"></script>
     <script src="../js/scripts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -160,6 +166,14 @@
 
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', checkUserName);
+    </script>
+    <script>
+        function dismissTest() {
+            if (confirm('Are you sure you want to dismiss this test? All progress will be lost.')) {
+                localStorage.removeItem('currentTestSession');
+                window.location.href = 'list-tests.html';
+            }
+        }
     </script>
 </body>
 </html>

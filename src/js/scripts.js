@@ -143,26 +143,61 @@ class TestManager {
     }
 
     async initializeTest() {
+        // Check for existing session
+        const session = TestSession.getSession();
+        if (session && session.testId === this.getTestIdFromUrl()) {
+            // Resume existing session
+            this.resumeSession(session);
+            return;
+        }
+
+        // Start new test
+        const testId = this.getTestIdFromUrl();
         try {
-            const urlParams = new URLSearchParams(window.location.search);
-            const testId = urlParams.get('id');
-            
             const response = await fetch('../data/question-answers.json');
             const data = await response.json();
             this.currentTest = data.tests.find(test => test.test_id === testId);
             
-            if (!this.currentTest) {
-                throw new Error('Test not found');
-            }
+            if (!this.currentTest) throw new Error('Test not found');
 
             this.selectedQuestions = this.selectBalancedQuestions();
             this.timeRemaining = this.currentTest.time_limit_minutes * 60;
             
+            // Save initial session
+            const now = new Date();
+            const endTime = new Date(now.getTime() + this.timeRemaining * 1000);
+            TestSession.saveSession({
+                testId: this.currentTest.test_id,
+                questions: this.selectedQuestions,
+                timeLimit: this.timeRemaining,
+                startTime: now.toISOString(),
+                endTime: endTime.toISOString()
+            });
+
             this.setupUI();
             this.startTimer();
         } catch (error) {
             console.error('Error initializing test:', error);
         }
+    }
+
+    resumeSession(session) {
+        this.currentTest = { test_id: session.testId };
+        this.selectedQuestions = session.questions;
+        this.userAnswers = session.answers;
+        this.currentQuestionIndex = session.currentIndex;
+        this.timeRemaining = TestSession.getRemainingTime();
+
+        // Restore selected answers
+        if (session.selectedOptions) {
+            this.userAnswers = new Array(this.selectedQuestions.length).fill(null);
+            Object.entries(session.selectedOptions).forEach(([index, answer]) => {
+                this.userAnswers[parseInt(index)] = answer;
+            });
+        }
+        
+        this.setupUI();
+        this.startTimer();
     }
 
     selectBalancedQuestions() {
@@ -245,12 +280,12 @@ class TestManager {
         document.getElementById('currentQuestionNum').textContent = this.currentQuestionIndex + 1;
         document.getElementById('questionText').textContent = question.question;
         
-        // Shuffle options while keeping track of the correct answer
-        const shuffledOptions = this.shuffleArray([...question.options]);
+        const savedAnswers = TestSession.getSavedAnswers();
+        const currentAnswer = savedAnswers[this.currentQuestionIndex];
         
         const optionsContainer = document.getElementById('optionsContainer');
-        optionsContainer.innerHTML = shuffledOptions.map((option) => `
-            <div class="option ${this.userAnswers[this.currentQuestionIndex] === option ? 'selected' : ''}" 
+        optionsContainer.innerHTML = question.options.map((option) => `
+            <div class="option ${currentAnswer === option ? 'selected' : ''}" 
                  data-option="${this.escapeHtml(option)}">
                 <code>${this.escapeHtml(option)}</code>
             </div>
@@ -265,6 +300,10 @@ class TestManager {
             option.addEventListener('click', () => {
                 const optionValue = option.getAttribute('data-option');
                 this.userAnswers[this.currentQuestionIndex] = optionValue;
+                
+                // Save the answer in session
+                TestSession.saveAnswer(this.currentQuestionIndex, optionValue);
+                
                 document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
                 option.classList.add('selected');
                 this.updateNavigationButtons();
@@ -292,9 +331,13 @@ class TestManager {
         this.timerInterval = setInterval(() => {
             this.timeRemaining--;
             this.updateTimerDisplay();
+            
             if (this.timeRemaining <= 0) {
                 this.submitTest();
             }
+            
+            // Check session validity
+            TestSession.autoSubmitIfExpired();
         }, 1000);
     }
 
@@ -337,6 +380,20 @@ class TestManager {
             console.error('Error submitting test:', error);
             alert('There was an error submitting your test. Please try again.');
         }
+
+        TestSession.clearSession();
+    }
+
+    // Add method to handle answer selection
+    handleAnswerSelection(answer) {
+        this.userAnswers[this.currentQuestionIndex] = answer;
+        TestSession.saveAnswer(this.currentQuestionIndex, answer);
+    }
+
+    // Get test ID from URL
+    getTestIdFromUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id');
     }
 }
 

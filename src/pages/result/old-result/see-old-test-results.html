@@ -81,6 +81,71 @@
             color: #64748b;
             margin-bottom: 1.5rem;
         }
+
+        .test-type-section {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .test-type-header h2 {
+            color: #1a1a1a;
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .attempts-count {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .attempts-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .attempt-card {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .attempt-card:hover {
+            transform: translateX(4px);
+        }
+
+        .attempt-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .attempt-date {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .view-details {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -114,39 +179,73 @@
                 return;
             }
 
-            container.innerHTML = history.map(test => {
-                const correctCount = test.questions.reduce((count, q, index) => 
-                    count + (test.answers[index] === q.answer ? 1 : 0), 0);
-                const percentage = Math.round((correctCount / test.totalQuestions) * 100);
-                const date = new Date(test.timestamp).toLocaleDateString();
-                const time = new Date(test.timestamp).toLocaleTimeString();
+            // Group tests by test type
+            const groupedTests = history.reduce((groups, test) => {
+                if (!groups[test.testId]) {
+                    groups[test.testId] = {
+                        testName: test.testName,
+                        attempts: []
+                    };
+                }
+                groups[test.testId].attempts.push(test);
+                return groups;
+            }, {});
 
-                let scoreClass = 'score-low';
-                if (percentage >= 80) scoreClass = 'score-high';
-                else if (percentage >= 60) scoreClass = 'score-mid';
+            // Display grouped tests
+            container.innerHTML = Object.entries(groupedTests).map(([testId, data]) => {
+                const sortedAttempts = data.attempts.sort((a, b) => 
+                    new Date(b.timestamp) - new Date(a.timestamp));
 
                 return `
-                    <div class="test-card" onclick="viewTestReview(${JSON.stringify(test).replace(/"/g, '&quot;')})">
-                        <div class="test-header">
-                            <h3>${test.testName}</h3>
-                            <span class="score-badge ${scoreClass}">${percentage}%</span>
+                    <div class="test-type-section">
+                        <div class="test-type-header">
+                            <h2>${data.testName}</h2>
+                            <span class="attempts-count">${data.attempts.length} attempt${data.attempts.length !== 1 ? 's' : ''}</span>
                         </div>
-                        <div class="test-details">
-                            <p><i class="fas fa-user"></i> ${test.userName || 'Anonymous'}</p>
-                            <p><i class="fas fa-calendar"></i> ${date} at ${time}</p>
-                            <p><i class="fas fa-check-circle"></i> ${correctCount}/${test.totalQuestions} correct</p>
-                            <p><i class="fas fa-clock"></i> Time: ${Math.floor(test.timeSpent / 60)}:${String(test.timeSpent % 60).padStart(2, '0')}</p>
+                        <div class="attempts-list">
+                            ${sortedAttempts.map((attempt, index) => {
+                                const correctCount = attempt.questions.reduce((count, q, i) => 
+                                    count + (attempt.answers[i] === q.answer ? 1 : 0), 0);
+                                const percentage = Math.round((correctCount / attempt.totalQuestions) * 100);
+                                const date = new Date(attempt.timestamp).toLocaleDateString();
+                                const time = new Date(attempt.timestamp).toLocaleTimeString();
+
+                                let scoreClass = 'score-low';
+                                if (percentage >= 80) scoreClass = 'score-high';
+                                else if (percentage >= 60) scoreClass = 'score-mid';
+
+                                return `
+                                    <div class="attempt-card" onclick="viewTestDetails(${JSON.stringify(attempt).replace(/"/g, '&quot;')})">
+                                        <div class="attempt-info">
+                                            <span class="attempt-date">Attempt #${data.attempts.length - index} - ${date} at ${time}</span>
+                                            <span class="score-badge ${scoreClass}">${percentage}%</span>
+                                        </div>
+                                        <div class="attempt-stats">
+                                            <p><i class="fas fa-check-circle"></i> ${correctCount}/${attempt.totalQuestions} correct</p>
+                                            <p><i class="fas fa-clock"></i> Time: ${Math.floor(attempt.timeSpent / 60)}:${String(attempt.timeSpent % 60).padStart(2, '0')}</p>
+                                        </div>
+                                        <div class="view-details">
+                                            View Details <i class="fas fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('')}
                         </div>
                     </div>
                 `;
             }).join('');
         });
 
-        function viewTestReview(test) {
-            // Store the test data for review
-            localStorage.setItem('currentTestResult', JSON.stringify(test));
-            // Navigate to review page
-            window.location.href = '../review-your-test.html';
+        function viewTestDetails(attempt) {
+            try {
+                // Store the attempt data for review
+                localStorage.setItem('currentTestResult', JSON.stringify(attempt));
+                // Navigate to review page
+                window.location.href = '../review-your-test.html';
+            } catch (error) {
+                console.error('Error viewing test details:', error);
+                alert('There was an error loading the test details. Please try again.');
+            }
         }
     </script>
 </body>

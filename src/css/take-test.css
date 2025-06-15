@@ -129,6 +129,11 @@ body {
     align-items: center;
 }
 
+.navigation-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
 .nav-btn, .submit-btn {
     padding: 0.75rem 1.5rem;
     border: none;
@@ -159,6 +164,21 @@ body {
 
 .submit-btn:hover {
     background: #15803d;
+}
+
+.dismiss-btn {
+    padding: 0.75rem 1.5rem;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dismiss-btn:hover {
+    background: #dc2626;
 }
 
 @media (max-width: 768px) {

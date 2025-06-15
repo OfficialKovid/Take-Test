@@ -362,6 +362,30 @@ body {
     background: #e2e8f0;
 }
 
+.view-history-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-history-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.view-history-btn i {
+    font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
     .test-list-container {
         padding: 1rem;
