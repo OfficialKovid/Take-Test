@@ -1,0 +1,8 @@
+1. Instead of adding. 4 options add. 8 options. Two of them are going to be Answers 
+   And 4 options. will be chosen randomly. Three will be chosen from the 6. incorrect answer and one will be chosen from who correct answers.
+
+2. Explain the answer. why it is answer?
+
+3. Check the questions And their answer. before production.
+
+4. 

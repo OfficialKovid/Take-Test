@@ -279,13 +279,13 @@ class TestManager {
         const question = this.selectedQuestions[this.currentQuestionIndex];
         document.getElementById('currentQuestionNum').textContent = this.currentQuestionIndex + 1;
         document.getElementById('questionText').textContent = question.question;
-        
-        const savedAnswers = TestSession.getSavedAnswers();
-        const currentAnswer = savedAnswers[this.currentQuestionIndex];
-        
+
+        // Always shuffle options for every display (no caching)
+        const shuffledOptions = this.shuffleArray([...question.options]);
+
         const optionsContainer = document.getElementById('optionsContainer');
-        optionsContainer.innerHTML = question.options.map((option) => `
-            <div class="option ${currentAnswer === option ? 'selected' : ''}" 
+        optionsContainer.innerHTML = shuffledOptions.map((option) => `
+            <div class="option ${this.userAnswers[this.currentQuestionIndex] === option ? 'selected' : ''}" 
                  data-option="${this.escapeHtml(option)}">
                 <code>${this.escapeHtml(option)}</code>
             </div>

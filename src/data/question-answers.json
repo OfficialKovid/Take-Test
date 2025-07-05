@@ -1443,6 +1443,463 @@
           ]
         }
       ]
+    },
+    {
+  "test_id": "python101",
+  "name": "Python Programming Fundamentals",
+  "category": "Programming",
+  "description": "Covers Python syntax, data structures, standard libraries, and core concepts",
+  "total_questions_available": 40,
+  "questions_per_exam": 25,
+  "time_limit_minutes": 40,
+  "shuffle_questions": true,
+  "categories": [
+    {
+      "name": "Python Basics",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "What is PEP 8?",
+          "options": [
+            "A Python style guide",
+            "A Python error type",
+            "A Python data structure",
+            "A version of Python"
+          ],
+          "answer": "A Python style guide"
+        },
+        {
+          "id": "q2",
+          "question": "What is the `#` symbol used for in Python?",
+          "options": [
+            "To declare variables",
+            "To indicate a comment",
+            "To define a string",
+            "To run shell commands"
+          ],
+          "answer": "To indicate a comment"
+        },
+        {
+          "id": "q3",
+          "question": "What are Python literals?",
+          "options": [
+            "Predefined functions",
+            "Fixed values in source code",
+            "Syntax errors",
+            "User-defined variables"
+          ],
+          "answer": "Fixed values in source code"
+        },
+        {
+          "id": "q4",
+          "question": "What is a negative index in Python?",
+          "options": [
+            "Index from end",
+            "Syntax error",
+            "Multiplication operation",
+            "Modulo operator"
+          ],
+          "answer": "Index from end"
+        },
+        {
+          "id": "q5",
+          "question": "What is slicing in Python?",
+          "options": [
+            "Extracting a subset of a list or string",
+            "Sorting data",
+            "Iterating over a loop",
+            "Deleting variables"
+          ],
+          "answer": "Extracting a subset of a list or string"
+        },
+        {
+          "id": "q6",
+          "question": "What is the difference between `/` and `//` in Python?",
+          "options": [
+            "`/` gives float, `//` gives int",
+            "`/` is bitwise, `//` is arithmetic",
+            "No difference",
+            "`/` is for strings"
+          ],
+          "answer": "`/` gives float, `//` gives int"
+        },
+        {
+          "id": "q7",
+          "question": "How do you floor a number in Python?",
+          "options": [
+            "math.floor()",
+            "round()",
+            "int()",
+            "math.ceil()"
+          ],
+          "answer": "math.floor()"
+        },
+        {
+          "id": "q8",
+          "question": "What is the `swapcase()` function?",
+          "options": [
+            "Swaps letter casing in a string",
+            "Sorts letters",
+            "Removes whitespace",
+            "Changes to uppercase"
+          ],
+          "answer": "Swaps letter casing in a string"
+        },
+        {
+          "id": "q9",
+          "question": "What is `pass` in Python?",
+          "options": [
+            "A null operation",
+            "Breaks loop",
+            "Skips to next line",
+            "Returns from function"
+          ],
+          "answer": "A null operation"
+        },
+        {
+          "id": "q10",
+          "question": "What is the `help()` and `dir()` function?",
+          "options": [
+            "Built-in introspection tools",
+            "Loops",
+            "File handlers",
+            "Data converters"
+          ],
+          "answer": "Built-in introspection tools"
+        },
+        {
+          "id": "q11",
+          "question": "How do you create a class in Python?",
+          "options": [
+            "Using `class` keyword",
+            "Using `def`",
+            "Using `new`",
+            "Using `object`"
+          ],
+          "answer": "Using `class` keyword"
+        },
+        {
+          "id": "q12",
+          "question": "How do you create an empty class?",
+          "options": [
+            "`class MyClass: pass`",
+            "`class MyClass(): {}`",
+            "`class: MyClass()`",
+            "`class MyClass: continue`"
+          ],
+          "answer": "`class MyClass: pass`"
+        },
+        {
+          "id": "q13",
+          "question": "What is the Python Switch Statement?",
+          "options": [
+            "Python doesn't have switch",
+            "Using `switch` keyword",
+            "Part of `match` only",
+            "Loop variant"
+          ],
+          "answer": "Python doesn't have switch"
+        },
+        {
+          "id": "q14",
+          "question": "What are weak references?",
+          "options": [
+            "References that don\u2019t increase ref count",
+            "Aliased references",
+            "Garbage collected immediately",
+            "References stored on disk"
+          ],
+          "answer": "References that don\u2019t increase ref count"
+        },
+        {
+          "id": "q15",
+          "question": "What is `__pycache__`?",
+          "options": [
+            "Folder for compiled bytecode",
+            "Temporary directory",
+            "Log storage",
+            "Debugger folder"
+          ],
+          "answer": "Folder for compiled bytecode"
+        },
+        {
+          "id": "q16",
+          "question": "What is the difference between `.py` and `.pyc` files?",
+          "options": [
+            ".py is source, .pyc is compiled",
+            ".py is compiled, .pyc is docs",
+            "No difference",
+            ".pyc is HTML"
+          ],
+          "answer": ".py is source, .pyc is compiled"
+        },
+        {
+          "id": "q17",
+          "question": "How do you read/write files in Python?",
+          "options": [
+            "Using `open()`",
+            "Using `writefile()`",
+            "Using `fileio()`",
+            "Using `doc()`"
+          ],
+          "answer": "Using `open()`"
+        },
+        {
+          "id": "q18",
+          "question": "What is the difference between `open()` and `with` statement?",
+          "options": [
+            "`with` handles file closing automatically",
+            "They are the same",
+            "`open()` is for reading only",
+            "`with` only for writing"
+          ],
+          "answer": "`with` handles file closing automatically"
+        },
+        {
+          "id": "q19",
+          "question": "How do you delete a file in Python?",
+          "options": [
+            "Using `os.remove()`",
+            "Using `delete()`",
+            "Using `file.del()`",
+            "Using `os.delete()`"
+          ],
+          "answer": "Using `os.remove()`"
+        },
+        {
+          "id": "q20",
+          "question": "How do you import modules?",
+          "options": [
+            "Using `import` keyword",
+            "Using `include()`",
+            "Using `define()`",
+            "Using `load()`"
+          ],
+          "answer": "Using `import` keyword"
+        },
+        {
+          "id": "q21",
+          "question": "What is a `KeyError`?",
+          "options": [
+            "Accessing missing dict key",
+            "Invalid loop",
+            "Missing function",
+            "Wrong variable name"
+          ],
+          "answer": "Accessing missing dict key"
+        },
+        {
+          "id": "q22",
+          "question": "What are NumPy arrays?",
+          "options": [
+            "N-dimensional arrays",
+            "String lists",
+            "Random variables",
+            "CSV files"
+          ],
+          "answer": "N-dimensional arrays"
+        },
+        {
+          "id": "q23",
+          "question": "What is Pandas DataFrame?",
+          "options": [
+            "2D labeled data structure",
+            "SQL table",
+            "Function output",
+            "Graph plot"
+          ],
+          "answer": "2D labeled data structure"
+        },
+        {
+          "id": "q24",
+          "question": "What is Matplotlib?",
+          "options": [
+            "Python plotting library",
+            "Sorting algorithm",
+            "HTML parser",
+            "Machine learning tool"
+          ],
+          "answer": "Python plotting library"
+        },
+        {
+          "id": "q25",
+          "question": "What is PIP?",
+          "options": [
+            "Python package installer",
+            "File reader",
+            "Debugger",
+            "Loop syntax"
+          ],
+          "answer": "Python package installer"
+        },
+        {
+          "id": "q26",
+          "question": "What is the default encoding in Python 3?",
+          "options": [
+            "UTF-8",
+            "ASCII",
+            "Latin-1",
+            "UTF-16"
+          ],
+          "answer": "UTF-8"
+        },
+        {
+          "id": "q27",
+          "question": "What is a lambda function?",
+          "options": [
+            "Anonymous function",
+            "Loop function",
+            "Exception handler",
+            "String converter"
+          ],
+          "answer": "Anonymous function"
+        },
+        {
+          "id": "q28",
+          "question": "What does `is` check in Python?",
+          "options": [
+            "Object identity",
+            "Value equality",
+            "Function type",
+            "Memory usage"
+          ],
+          "answer": "Object identity"
+        },
+        {
+          "id": "q29",
+          "question": "Which keyword is used to handle exceptions?",
+          "options": [
+            "try",
+            "catch",
+            "except",
+            "handle"
+          ],
+          "answer": "except"
+        },
+        {
+          "id": "q30",
+          "question": "What does `len()` return?",
+          "options": [
+            "Number of items",
+            "Memory size",
+            "Data type",
+            "Index position"
+          ],
+          "answer": "Number of items"
+        },
+        {
+          "id": "q31",
+          "question": "What does `range(5)` return?",
+          "options": [
+            "0 to 4",
+            "1 to 5",
+            "0 to 5",
+            "5 items starting from 1"
+          ],
+          "answer": "0 to 4"
+        },
+        {
+          "id": "q32",
+          "question": "Which of these is a mutable type?",
+          "options": [
+            "List",
+            "Tuple",
+            "String",
+            "Int"
+          ],
+          "answer": "List"
+        },
+        {
+          "id": "q33",
+          "question": "What is the result of `bool('False')`?",
+          "options": [
+            "True",
+            "False",
+            "None",
+            "Error"
+          ],
+          "answer": "True"
+        },
+        {
+          "id": "q34",
+          "question": "What does `*args` do?",
+          "options": [
+            "Accept variable number of arguments",
+            "Defines array",
+            "Skips arguments",
+            "Multiplies arguments"
+          ],
+          "answer": "Accept variable number of arguments"
+        },
+        {
+          "id": "q35",
+          "question": "What is the result of `10**2`?",
+          "options": [
+            "100",
+            "20",
+            "102",
+            "10"
+          ],
+          "answer": "100"
+        },
+        {
+          "id": "q36",
+          "question": "What is a docstring in Python?",
+          "options": [
+            "String for documentation",
+            "Syntax error",
+            "Multiline string",
+            "Hidden comment"
+          ],
+          "answer": "String for documentation"
+        },
+        {
+          "id": "q37",
+          "question": "Which operator is used for exponentiation?",
+          "options": [
+            "**",
+            "^",
+            "^^",
+            "exp()"
+          ],
+          "answer": "**"
+        },
+        {
+          "id": "q38",
+          "question": "What is `None` in Python?",
+          "options": [
+            "Represents null value",
+            "Empty string",
+            "Zero",
+            "Boolean"
+          ],
+          "answer": "Represents null value"
+        },
+        {
+          "id": "q39",
+          "question": "Which module is used for date and time?",
+          "options": [
+            "datetime",
+            "calendar",
+            "timeutils",
+            "date"
+          ],
+          "answer": "datetime"
+        },
+        {
+          "id": "q40",
+          "question": "Which symbol is used for comments in Python?",
+          "options": [
+            "#",
+            "//",
+            "/*",
+            "--"
+          ],
+          "answer": "#"
+        }
+      ]
     }
+  ]
+}
   ]
 }
