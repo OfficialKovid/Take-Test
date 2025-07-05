@@ -316,6 +316,7 @@ class TestManager {
         document.getElementById('progressBar').style.width = `${progress}%`;
     }
 
+    
     updateNavigationButtons() {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
